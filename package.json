@@ -1,0 +1,29 @@
+{
+  "name": "nextjs-template",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennnoval/nextjs-template.git"
+  },
+  "keywords": [],
+  "author": "noVAL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dennnoval/nextjs-template/issues"
+  },
+  "homepage": "https://github.com/dennnoval/nextjs-template#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "next": "10.2.0",
+    "next-pwa": "^5.2.21",
+    "react": "17.0.2",
+    "react-bootstrap": "^1.6.0",
+    "react-dom": "17.0.2"
+  }
+}

@@ -1,12 +1,11 @@
-import '../styles/Home.module.css'
 import { Navbar } from '../components/index'
 
-export default function Home() {
+export default function About() {
   return (
   	<>
   		<Navbar/>
     	<main id='Home'>
-    		<h1 className='text-danger'>Home Page</h1>
+    		<h1 className='text-success'>About Page</h1>
     	</main>
     </>
   )

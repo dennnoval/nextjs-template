@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/dennnoval/nextjs-template#readme",
   "dependencies": {
-    "bootstrap": "^4.6.0",
     "next": "10.2.0",
     "next-pwa": "^5.2.21",
     "react": "17.0.2",

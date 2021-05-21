@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import '../styles/bootstrap.min.css'
 
-export default function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>

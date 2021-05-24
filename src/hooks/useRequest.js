@@ -5,7 +5,10 @@ const baseUrl = 'https://api.instantwebtools.net/v1'
 export function usePagination() {
   const PAGE_LIMIT = 1
   const { data, error, size, setSize } = useSWRInfinite(
-      index => baseUrl+'/passenger?size='+PAGE_LIMIT+'&page='+(index+1)
+      (pageIndex, previousPageData) => {
+        if (previousPageData && !previousPageData.length) return null
+        return baseUrl+'/passenger?size='+PAGE_LIMIT+'&page='+(pageIndex+1)
+      }
     )
 
   const pageData = data ? [].concat(...data) : []

@@ -1,13 +1,19 @@
 import { useSWRInfinite } from "swr"
 
-const baseUrl = 'https://api.instantwebtools.net/v1'
-
-export function usePagination() {
-  const PAGE_LIMIT = 1
+export function usePagination(url, limitPerPage) {
   const { data, error, size, setSize } = useSWRInfinite(
       (pageIndex, previousPageData) => {
         if (previousPageData && !previousPageData.length) return null
-        return baseUrl+'/passenger?size='+PAGE_LIMIT+'&page='+(pageIndex+1)
+        const baseUrl = url.href.split('?')[0]
+        const params = new URLSearchParams(url.href.split('?')[1])
+        for (const [key, val] of params.entries()) {
+          if (key === 'page') {
+            params.set(key, pageIndex)
+          } else {
+            params.set(key, limitPerPage)
+          }
+        }
+        return baseUrl+'?'+params.toString()
       }
     )
 
@@ -19,7 +25,7 @@ export function usePagination() {
     (size > 0 && data && typeof data[size - 1] === "undefined")
   const isEmpty = data?.[0]?.length === 0
   const isReachingEnd =
-    isEmpty || (data && data[data.length - 1]?.length < PAGE_LIMIT)
+    isEmpty || (data && data[data.length - 1]?.length < limitPerPage)
 
   return { pageData, error, size, setSize, isLoadingMore, isReachingEnd }
 }
